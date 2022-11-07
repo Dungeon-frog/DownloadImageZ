@@ -27,12 +27,23 @@ namespace DownloadImageZ
         {
             InitializeComponent();
         }
+
+       
         private void Srch(object sender, RoutedEventArgs e)
         {
-            img.Source = null;
+            try
+            {
+                img.Source = null;
                 byte[] response = new WebClient().DownloadData(txt.Text);
                 BitmapImage uriSource = LoadImage(response);
                 img.Source = uriSource;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Введите коректный URL", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+            }
+            
         }
         private static BitmapImage LoadImage(byte[] imageData)
         {
@@ -40,6 +51,10 @@ namespace DownloadImageZ
             var image = new BitmapImage();
             using (var mem = new MemoryStream(imageData))
             {
+                using (var fs = new FileStream("Picture.png", FileMode.Create))
+                {
+                    mem.WriteTo(fs);
+                }
                 mem.Position = 0;
                 image.BeginInit();
                 image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
@@ -50,6 +65,7 @@ namespace DownloadImageZ
             }
             image.Freeze();
             return image;
+
         }
     }
 }

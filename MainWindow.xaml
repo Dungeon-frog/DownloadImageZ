@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="txt" HorizontalAlignment="Left" Height="23" Margin="210,61,0,0" TextWrapping="Wrap" Text="Сюда URL" VerticalAlignment="Top" Width="380"/>
+        <TextBox x:Name="txt" HorizontalAlignment="Left" Height="23" Margin="210,70,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="380"/>
         <Button Content="Search" HorizontalAlignment="Left" Margin="343,371,0,0" VerticalAlignment="Top" Width="75" Click="Srch"/>
         <Image x:Name="img" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Left" Height="211" VerticalAlignment="Top" Width="380" Margin="210,123,0,0"/>
+        <Label Content="Данная программа показывает картинку на экране через URL ссылку" HorizontalAlignment="Left" Margin="200,43,0,0" VerticalAlignment="Top" Width="410"/>
 
     </Grid>
 </Window>
